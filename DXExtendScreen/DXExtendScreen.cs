@@ -20,18 +20,18 @@ namespace TakamineProduction
 		public Size ScreenOriginalSize { get; private set; }
 		/// <summary>描画可能グラフィックを実際に描画する際のサイズ</summary>
 		public Size ScreenSize { get; private set; }
-		/// <summary>拡大倍率（変更するとRemakeが実行される）</summary>
+		/// <summary>拡大倍率（１以上のみ。変更するとRemakeが実行される）</summary>
 		public double ExtendRate
 		{
 			get => extendRate;
 			set
 			{
-				extendRate = value;
+				extendRate = value < 1 ? 1 : value;
 				Remake();
 			}
 		}
 		/// <summary>コンストラクタ。描画可能グラフィックを作成する</summary>
-		/// <param name="extendRate">拡大倍率</param>
+		/// <param name="extendRate">拡大倍率（１以上のみ）</param>
 		public DXExtendScreen(double extendRate)
 		=> ExtendRate = extendRate;
 		/// <summary>現在のクライアント領域に合わせて各プロパティを再設定する。ハンドルは再作成される（SetDrawScreenでこのオブジェクトのハンドルを指定していた場合、再設定する）</summary>
