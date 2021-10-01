@@ -20,6 +20,8 @@ namespace TakamineProduction
 		public Size ScreenOriginalSize { get; private set; }
 		/// <summary>描画可能グラフィックを実際に描画する際のサイズ</summary>
 		public Size ScreenSize { get; private set; }
+		/// <summary>ScreenOriginalSizeとScreenSizeの縦横比が一致することを表す。Falseの時、画像に歪みがある可能性がある。</summary>
+		public bool IsNormalAspect { get => (double)ScreenOriginalSize.Width / (double)ScreenOriginalSize.Height == (double)ScreenSize.Width / (double)ScreenSize.Height; }
 		/// <summary>拡大倍率（１以上のみ。変更するとRemakeが実行される）</summary>
 		public double ExtendRate
 		{

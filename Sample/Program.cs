@@ -43,6 +43,8 @@ namespace Sample
 				DX.DrawPixel(100, 20, DX.GetColor(255, 0, 0));
 				DX.DrawLine(80, 30, 120, 30, DX.GetColor(255, 0, 0));
 				DX.DrawString(0, 0, exScr.ExtendRate.ToString("F2") + "倍　で表示。", DX.GetColor(255, 0, 255));
+				
+				DX.DrawString(0, 40, "正常ｱｽ比:" + exScr.IsNormalAspect.ToString(), DX.GetColor(255, 0, 255));
 
 				//★　裏画面に描画可能グラフィックを描き込んでScreenFlipを実行する
 				exScr.DrawToBackAndFlip();
